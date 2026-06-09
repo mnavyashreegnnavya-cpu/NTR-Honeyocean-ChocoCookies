@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a140a" />
+      <stop offset="100%" stop-color="#0f0703" />
+    </radialGradient>
+
+    <!-- Cookie Base Gradient -->
+    <radialGradient id="cookie-grad" cx="45%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#f5d061" />
+      <stop offset="60%" stop-color="#c99827" />
+      <stop offset="100%" stop-color="#805b0c" />
+    </radialGradient>
+
+    <!-- Chocolate Chunk Gradient -->
+    <linearGradient id="chunk-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#401e0d" />
+      <stop offset="50%" stop-color="#2c1206" />
+      <stop offset="100%" stop-color="#120501" />
+    </linearGradient>
+
+    <!-- Gold Gradients -->
+    <linearGradient id="gold-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf6c7" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#805b0c" />
+    </linearGradient>
+
+    <!-- Glowing effect filters -->
+    <filter id="ray-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="cookie-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* Keyframe Animations */
+    @keyframes rotate-rays {
+      0% { transform: translate(200px, 200px) rotate(0deg); }
+      100% { transform: translate(200px, 200px) rotate(360deg); }
+    }
+    @keyframes float-cookie {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+    @keyframes sparkle-glow {
+      0%, 100% { transform: scale(0.4) rotate(0deg); opacity: 0.3; }
+      50% { transform: scale(1.1) rotate(45deg); opacity: 0.95; }
+    }
+    @keyframes float-dust {
+      0% { transform: translateY(20px) scale(0.6); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-50px) scale(1.1); opacity: 0; }
+    }
+
+    /* SVG Classes */
+    .bg { fill: url(#bg-grad); }
+    .rays {
+      animation: rotate-rays 25s linear infinite;
+      transform-origin: 0px 0px; /* Centered dynamically by translate */
+      opacity: 0.35;
+    }
+    .floating-cookie {
+      animation: float-cookie 7s ease-in-out infinite;
+      transform-origin: 200px 200px;
+    }
+    .sparkle {
+      fill: #fff;
+      filter: drop-shadow(0 0 4px #d4af37);
+      transform-origin: center;
+      animation: sparkle-glow 3s infinite ease-in-out;
+    }
+    .gold-particle {
+      fill: url(#gold-shine);
+      animation: float-dust 5s infinite linear;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" width="400" height="400" rx="15" />
+
+  <!-- Sunburst Golden Rays (Royal Backdrop) -->
+  <g class="rays" filter="url(#ray-glow)">
+    <!-- 8 Sun Rays radiating outward -->
+    <path d="M 0,0 L -25,-250 L 25,-250 Z" fill="url(#gold-shine)" opacity="0.3" />
+    <path d="M 0,0 L 225,-125 L 250,-75 Z" fill="url(#gold-shine)" opacity="0.3" />
+    <path d="M 0,0 L 250,-25 L 250,25 Z" fill="url(#gold-shine)" opacity="0.3" />
+    <path d="M 0,0 L 125,225 L 75,250 Z" fill="url(#gold-shine)" opacity="0.3" />
+    <path d="M 0,0 L -25,250 L 25,250 Z" fill="url(#gold-shine)" opacity="0.3" />
+    <path d="M 0,0 L -225,125 L -250,75 Z" fill="url(#gold-shine)" opacity="0.3" />
+    <path d="M 0,0 L -250,-25 L -250,25 Z" fill="url(#gold-shine)" opacity="0.3" />
+    <path d="M 0,0 L -125,-225 L -75,-250 Z" fill="url(#gold-shine)" opacity="0.3" />
+  </g>
+
+  <!-- Floating Golden Dust -->
+  <circle class="gold-particle" cx="130" cy="280" r="3.5" style="animation-delay: 0s; animation-duration: 4.5s;" />
+  <circle class="gold-particle" cx="280" cy="260" r="2.5" style="animation-delay: 1.5s; animation-duration: 5.2s;" />
+  <circle class="gold-particle" cx="100" cy="180" r="3" style="animation-delay: 0.8s; animation-duration: 4.8s;" />
+  <circle class="gold-particle" cx="290" cy="150" r="4" style="animation-delay: 2.3s; animation-duration: 6s;" />
+
+  <!-- Floating Cookie Wrapper -->
+  <g class="floating-cookie" filter="url(#cookie-shadow)">
+    <!-- Outer Cookie Body with wavy, textured, handcrafted border -->
+    <path d="M 200,85 
+             Q 225,82 245,95 
+             Q 265,102 285,100
+             Q 302,118 300,140
+             Q 322,152 315,175
+             Q 322,200 310,225
+             Q 312,250 295,270
+             Q 280,295 255,302
+             Q 230,320 200,315
+             Q 170,320 145,302
+             Q 120,295 105,270
+             Q 88,250 90,225
+             Q 78,200 85,175
+             Q 78,152 100,140
+             Q 98,118 115,100
+             Q 135,102 155,95
+             Q 175,82 200,85 Z" 
+          fill="url(#cookie-grad)" />
+
+    <!-- Surface texture details (cracks and crumbs) -->
+    <path d="M 140,130 Q 155,140 170,135" stroke="#704b05" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M 230,120 Q 240,135 255,130" stroke="#704b05" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M 120,200 Q 140,215 155,200" stroke="#704b05" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M 220,250 Q 245,260 270,245" stroke="#704b05" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M 170,280 Q 190,290 210,280" stroke="#704b05" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+
+    <!-- Premium Dark Chocolate Chunks -->
+    <!-- Chunk 1 -->
+    <path d="M 150,140 L 180,145 L 170,170 L 145,160 Z" fill="url(#chunk-grad)" stroke="#220e06" stroke-width="1.5" />
+    <path d="M 152,142 L 178,147 L 176,152 Z" fill="#6d3a1d" opacity="0.4"/> <!-- Highlight -->
+
+    <!-- Chunk 2 -->
+    <path d="M 220,135 L 245,145 L 235,170 L 210,160 Z" fill="url(#chunk-grad)" stroke="#220e06" stroke-width="1.5" />
+    <path d="M 222,137 L 243,147 L 241,152 Z" fill="#6d3a1d" opacity="0.4"/>
+
+    <!-- Chunk 3 -->
+    <path d="M 125,210 L 155,215 L 145,240 L 120,230 Z" fill="url(#chunk-grad)" stroke="#220e06" stroke-width="1.5" />
+    <path d="M 127,212 L 153,217 L 151,222 Z" fill="#6d3a1d" opacity="0.4"/>
+
+    <!-- Chunk 4 (Large centerpiece) -->
+    <path d="M 175,185 L 220,180 L 210,225 L 170,220 Z" fill="url(#chunk-grad)" stroke="#220e06" stroke-width="1.8" />
+    <path d="M 178,188 L 217,183 L 213,195 Z" fill="#6d3a1d" opacity="0.4"/>
+
+    <!-- Chunk 5 -->
+    <path d="M 235,210 L 265,220 L 250,245 L 225,235 Z" fill="url(#chunk-grad)" stroke="#220e06" stroke-width="1.5" />
+    <path d="M 237,212 L 263,222 L 261,227 Z" fill="#6d3a1d" opacity="0.4"/>
+
+    <!-- Chunk 6 -->
+    <path d="M 170,245 L 195,240 L 190,265 L 165,260 Z" fill="url(#chunk-grad)" stroke="#220e06" stroke-width="1.5" />
+    <path d="M 172,247 L 193,242 L 191,247 Z" fill="#6d3a1d" opacity="0.4"/>
+  </g>
+
+  <!-- Sparkles -->
+  <path class="sparkle" d="M 280,110 L 282,115 L 287,117 L 282,119 L 280,124 L 278,119 L 273,117 L 278,115 Z" style="animation-delay: 0.2s; transform: translate(280px, 110px);"/>
+  <path class="sparkle" d="M 110,260 L 112,265 L 117,267 L 112,269 L 110,274 L 108,269 L 103,267 L 108,265 Z" style="animation-delay: 1.8s; transform: translate(110px, 260px);"/>
+  <path class="sparkle" d="M 210,210 L 212,215 L 217,217 L 212,219 L 210,224 L 208,219 L 203,217 L 208,215 Z" style="animation-delay: 0.9s; transform: translate(210px, 210px);"/>
+</svg>

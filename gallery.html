@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View the visual artistry of NTR Honey Ocean Chocolates and Cookies. Browse our gallery of handcrafted chocolates, fresh cookies, and artisanal kitchen stories.">
+    <title>Visual Gallery | NTR Honey Ocean Chocolates and Cookies</title>
+    <!-- Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="admin-mode-indicator" id="admin-indicator"><i class="fa-solid fa-lock-open"></i> Confections Manager Active</div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <nav class="nav-container">
+            <a href="index.html" class="logo-link" id="nav-logo">
+                <img src="./images/logo.jpg" alt="NTR Honey Ocean Logo" class="logo-img">
+                <div class="logo-text-wrapper">
+                    <div class="logo-main">
+                        <span>NTR HONEY OCEAN</span>
+                    </div>
+                    <div class="logo-sub">Chocolates and Cookies</div>
+                </div>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-item">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="products.html" class="nav-item">Products</a></li>
+                <li><a href="gallery.html" class="nav-item">Gallery</a></li>
+                <li><a href="contact.html" class="nav-item">Contact</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Intro Banner -->
+    <div class="page-intro">
+        <h1>Visual Gallery</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; align-self: center;"></i>
+            <span>Gallery</span>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <!-- Gallery Admin controls -->
+        <div class="product-filters" style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 3rem;">
+            <button class="filter-btn" id="btn-toggle-admin" style="border-color: var(--color-honey); color: var(--color-honey);"><i class="fa-solid fa-lock"></i> Manage Gallery</button>
+            <button class="filter-btn admin-only-btn" id="btn-admin-add-gallery-item" style="border-color: var(--color-primary-gold); color: var(--color-primary-gold); display: none;"><i class="fa-solid fa-plus"></i> Add New Gallery Item</button>
+            <button class="filter-btn admin-only-btn" id="btn-admin-edit-social" style="border-color: var(--color-primary-gold); color: var(--color-primary-gold); display: none;"><i class="fa-solid fa-gears"></i> Website Settings</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Dynamically populated via JS -->
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button id="lightbox-close" class="lightbox-close" aria-label="Close image lightbox">&times;</button>
+            <img id="lightbox-image" src="" alt="Zoomed view" class="lightbox-image">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo-link" style="margin-bottom: 1.5rem;">
+                    <img src="./images/logo.jpg" alt="NTR Honey Ocean Logo" class="logo-img">
+                    <div class="logo-text-wrapper">
+                        <div class="logo-main">
+                            <span>NTR HONEY OCEAN</span>
+                        </div>
+                        <div class="logo-sub">Chocolates and Cookies</div>
+                    </div>
+                </div>
+                <p>Bangalore's premium chocolate boutique blending rich dark cocoa with organic forest honey. Handcrafted with passion, delivered fresh.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Boutique Pages</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Product Catalog</a></li>
+                    <li><a href="gallery.html">Visual Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Boutique Info</h3>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <a href="https://maps.google.com/?q=No.38,%204th%20cross,%20Priyadarshini%20Layout,%20Chikka%20Devasandhra,%20Near%20Topmart,%20KR%20PURA,%20BANGALORE%20560036" target="_blank" class="contact-link">No.38, 4th cross, Priyadarshini Layout, Chikka Devasandhra, Near Topmart, KR PURA, BANGALORE 560036.</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <a href="https://wa.me/918310503775" target="_blank" class="contact-link">+91 8310503775 (Orders)</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:mnavyashreegnnavya@gmail.com" class="contact-link">mnavyashreegnnavya@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 NTR Honey Ocean Chocolates and Cookies. All Rights Reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a140a" />
+      <stop offset="100%" stop-color="#0f0703" />
+    </radialGradient>
+
+    <!-- Gold Foil Gradients -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#aa7c11" />
+      <stop offset="25%" stop-color="#f3e5ab" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="75%" stop-color="#fdf6c7" />
+      <stop offset="100%" stop-color="#aa7c11" />
+    </linearGradient>
+
+    <!-- Chocolate Gradients -->
+    <linearGradient id="choc-base" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a2511" />
+      <stop offset="100%" stop-color="#220f05" />
+    </linearGradient>
+    <linearGradient id="choc-bevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5a2e16" />
+      <stop offset="100%" stop-color="#180a03" />
+    </linearGradient>
+
+    <!-- Soft Glow Filter -->
+    <filter id="gold-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="15" stdDeviation="10" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* Keyframe Animations */
+    @keyframes float-bar {
+      0%, 100% { transform: translateY(0px) rotate(-6deg); }
+      50% { transform: translateY(-6px) rotate(-4deg); }
+    }
+    @keyframes crumb-fall-1 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+      50% { transform: translate(15px, 20px) rotate(180deg) scale(0.8); opacity: 0.8; }
+      100% { transform: translate(25px, 45px) rotate(360deg) scale(0.5); opacity: 0; }
+    }
+    @keyframes crumb-fall-2 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+      50% { transform: translate(-20px, 15px) rotate(-120deg) scale(0.9); opacity: 0.9; }
+      100% { transform: translate(-35px, 35px) rotate(-240deg) scale(0.6); opacity: 0; }
+    }
+    @keyframes crumb-fall-3 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+      50% { transform: translate(5px, 25px) rotate(90deg) scale(0.7); opacity: 0.6; }
+      100% { transform: translate(12px, 55px) rotate(180deg) scale(0.4); opacity: 0; }
+    }
+    @keyframes pulse-gold {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.9; }
+    }
+    @keyframes drip {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(1.25); }
+    }
+
+    /* SVG Classes */
+    .bg { fill: url(#bg-grad); }
+    .floating-group {
+      animation: float-bar 6s ease-in-out infinite;
+      transform-origin: 200px 200px;
+    }
+    .crumb-1 { animation: crumb-fall-1 3.5s infinite linear; transform-origin: center; }
+    .crumb-2 { animation: crumb-fall-2 4.2s infinite linear; transform-origin: center; }
+    .crumb-3 { animation: crumb-fall-3 2.8s infinite linear; transform-origin: center; }
+    .glow-circle { animation: pulse-gold 5s infinite ease-in-out; }
+    .drip-melt { animation: drip 3s infinite ease-in-out; transform-origin: top; }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" width="400" height="400" rx="15" />
+
+  <!-- Ambient Glow in Background -->
+  <circle class="glow-circle" cx="210" cy="190" r="120" fill="#aa7c11" opacity="0.35" filter="url(#gold-glow)" />
+
+  <!-- Animated Floating Group -->
+  <g class="floating-group" filter="url(#soft-shadow)">
+    
+    <!-- Chocolate Bar with Bite Taken Out -->
+    <!-- The bar is defined with a clip path or custom path to show the bite on top right -->
+    <!-- Bite Coordinates: curves cutting in at the top right -->
+    <path d="M 130,110 
+             L 220,110 
+             A 18,18 0 0,0 206,128 
+             A 18,18 0 0,0 224,146 
+             A 18,18 0 0,0 242,128
+             A 18,18 0 0,0 260,110 
+             L 270,110
+             A 10,10 0 0,1 280,120
+             L 280,290
+             A 10,10 0 0,1 270,300
+             L 130,300
+             A 10,10 0 0,1 120,290
+             L 120,120
+             A 10,10 0 0,1 130,110 Z" 
+          fill="url(#choc-base)" />
+
+    <!-- Chocolate Segments (Grid matching the bite cut) -->
+    <!-- Row 1 -->
+    <rect x="130" y="120" width="32" height="32" rx="2" fill="url(#choc-bevel)" />
+    <rect x="132" y="122" width="28" height="28" rx="1" fill="url(#choc-base)" />
+    
+    <rect x="168" y="120" width="32" height="32" rx="2" fill="url(#choc-bevel)" />
+    <rect x="170" y="122" width="28" height="28" rx="1" fill="url(#choc-base)" />
+    
+    <!-- Segment at (206, 120) is partially bitten, so we draw it custom or omit it. Omit it for cool bite effect! -->
+    
+    <rect x="244" y="120" width="24" height="32" rx="2" fill="url(#choc-bevel)" opacity="0.8"/>
+    <rect x="246" y="122" width="20" height="28" rx="1" fill="url(#choc-base)" opacity="0.8"/>
+
+    <!-- Row 2 -->
+    <rect x="130" y="158" width="32" height="32" rx="2" fill="url(#choc-bevel)" />
+    <rect x="168" y="158" width="32" height="32" rx="2" fill="url(#choc-bevel)" />
+    <rect x="206" y="158" width="32" height="32" rx="2" fill="url(#choc-bevel)" />
+    <rect x="244" y="158" width="26" height="32" rx="2" fill="url(#choc-bevel)" />
+
+    <!-- Row 3 -->
+    <rect x="130" y="196" width="32" height="32" rx="2" fill="url(#choc-bevel)" />
+    <rect x="168" y="196" width="32" height="32" rx="2" fill="url(#choc-bevel)" />
+    <rect x="206" y="196" width="32" height="32" rx="2" fill="url(#choc-bevel)" />
+    <rect x="244" y="196" width="26" height="32" rx="2" fill="url(#choc-bevel)" />
+
+    <!-- Royal Wrapper partially covering the lower half -->
+    <path d="M 116,215 
+             L 145,200 
+             Q 175,220 195,195 
+             Q 215,180 245,200 
+             L 284,215 
+             L 284,304 
+             L 116,304 Z" 
+          fill="url(#gold-grad)" stroke="#aa7c11" stroke-width="1.5" />
+    
+    <!-- Royal Gold Stripes -->
+    <path d="M 120,240 L 280,240" stroke="#aa7c11" stroke-width="0.8" opacity="0.5"/>
+    <path d="M 120,265 L 280,265" stroke="#aa7c11" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Melted Drip at the bite mark -->
+    <path class="drip-melt" d="M 221,146 Q 224,165 224,172 Q 224,176 221,176 Q 218,176 218,172 Q 218,165 221,146 Z" fill="#30160a" />
+
+    <!-- Cookie/Chocolate Crumbs drifting from the bite -->
+    <!-- Crumb Group 1 (starts at 224, 150) -->
+    <g class="crumb-1" transform="translate(224, 155)">
+      <polygon points="0,0 -4,5 2,7" fill="#4a2511" />
+    </g>
+    <!-- Crumb Group 2 -->
+    <g class="crumb-2" transform="translate(235, 140)">
+      <rect x="0" y="0" width="4" height="4" rx="1" fill="#aa7c11" />
+    </g>
+    <!-- Crumb Group 3 -->
+    <g class="crumb-3" transform="translate(210, 160)">
+      <polygon points="0,0 5,-2 2,5" fill="#220f05" />
+    </g>
+    <g class="crumb-1" transform="translate(250, 130)" style="animation-delay: 1s;">
+      <circle cx="0" cy="0" r="2" fill="#4a2511" />
+    </g>
+  </g>
+</svg>

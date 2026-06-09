@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a140a" />
+      <stop offset="100%" stop-color="#0f0703" />
+    </radialGradient>
+
+    <!-- Gold Foil Gradients -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#aa7c11" />
+      <stop offset="25%" stop-color="#f3e5ab" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="75%" stop-color="#fdf6c7" />
+      <stop offset="100%" stop-color="#aa7c11" />
+    </linearGradient>
+
+    <!-- Dark Chocolate Gradients -->
+    <linearGradient id="choc-dark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b1d0c" />
+      <stop offset="100%" stop-color="#190a03" />
+    </linearGradient>
+    <linearGradient id="choc-bevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4d2712" />
+      <stop offset="100%" stop-color="#100501" />
+    </linearGradient>
+
+    <!-- Milk Chocolate Gradients (For Variety) -->
+    <linearGradient id="choc-milk" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5c361e" />
+      <stop offset="100%" stop-color="#361f10" />
+    </linearGradient>
+
+    <!-- Soft Glow Filter -->
+    <filter id="gold-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000000" flood-opacity="0.85"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* Keyframe Animations */
+    @keyframes rotate-glow {
+      0% { transform: translate(200px, 200px) rotate(0deg) scale(1); opacity: 0.3; }
+      50% { transform: translate(200px, 200px) rotate(180deg) scale(1.15); opacity: 0.55; }
+      100% { transform: translate(200px, 200px) rotate(360deg) scale(1); opacity: 0.3; }
+    }
+    @keyframes float-stack {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    @keyframes sparkle-pulse {
+      0%, 100% { transform: scale(0.3) rotate(0deg); opacity: 0.2; }
+      50% { transform: scale(1) rotate(90deg); opacity: 1; }
+    }
+
+    /* SVG Classes */
+    .bg { fill: url(#bg-grad); }
+    .glow-bg {
+      animation: rotate-glow 15s linear infinite;
+      transform-origin: 0px 0px;
+    }
+    .floating-stack {
+      animation: float-stack 7s ease-in-out infinite;
+      transform-origin: 200px 200px;
+    }
+    .sparkle {
+      fill: #fff;
+      filter: drop-shadow(0 0 3px #d4af37);
+      transform-origin: center;
+      animation: sparkle-pulse 3.5s infinite ease-in-out;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" width="400" height="400" rx="15" />
+
+  <!-- Animated Ambient Halo Background -->
+  <g class="glow-bg" filter="url(#gold-glow)">
+    <circle cx="0" cy="0" r="110" fill="#aa7c11" />
+    <path d="M-80,-80 L80,80 M80,-80 L-80,80" stroke="#d4af37" stroke-width="25" opacity="0.4" />
+  </g>
+
+  <!-- Floating Group -->
+  <g class="floating-stack" filter="url(#soft-shadow)">
+    
+    <!-- 1. LARGE CHOCOLATE BAR (Background, angled left) -->
+    <g transform="translate(140, 160) rotate(-15) translate(-70, -110)">
+      <rect x="0" y="0" width="110" height="190" rx="6" fill="url(#choc-dark)" />
+      <!-- Bevels -->
+      <rect x="8" y="8" width="28" height="34" rx="2" fill="url(#choc-bevel)" />
+      <rect x="41" y="8" width="28" height="34" rx="2" fill="url(#choc-bevel)" />
+      <rect x="74" y="8" width="28" height="34" rx="2" fill="url(#choc-bevel)" />
+
+      <rect x="8" y="48" width="28" height="34" rx="2" fill="url(#choc-bevel)" />
+      <rect x="41" y="48" width="28" height="34" rx="2" fill="url(#choc-bevel)" />
+      <rect x="74" y="48" width="28" height="34" rx="2" fill="url(#choc-bevel)" />
+      
+      <!-- Gold Foil Base -->
+      <path d="M -2,85 L 112,80 L 112,192 L -2,192 Z" fill="url(#gold-grad)" stroke="#aa7c11" stroke-width="1"/>
+      <path d="M 0,110 L 110,110" stroke="#8a640f" stroke-width="0.8" opacity="0.4"/>
+      <path d="M 0,140 L 110,140" stroke="#8a640f" stroke-width="0.8" opacity="0.4"/>
+    </g>
+
+    <!-- 2. MEDIUM MILK CHOCOLATE BAR (Middle, angled right) -->
+    <g transform="translate(240, 200) rotate(12) translate(-60, -90)">
+      <rect x="0" y="0" width="95" height="160" rx="6" fill="url(#choc-milk)" />
+      <!-- Bevels -->
+      <rect x="7" y="7" width="24" height="28" rx="2" fill="url(#choc-bevel)" opacity="0.6" />
+      <rect x="35" y="7" width="24" height="28" rx="2" fill="url(#choc-bevel)" opacity="0.6" />
+      <rect x="63" y="7" width="24" height="28" rx="2" fill="url(#choc-bevel)" opacity="0.6" />
+
+      <rect x="7" y="40" width="24" height="28" rx="2" fill="url(#choc-bevel)" opacity="0.6" />
+      <rect x="35" y="40" width="24" height="28" rx="2" fill="url(#choc-bevel)" opacity="0.6" />
+      <rect x="63" y="40" width="24" height="28" rx="2" fill="url(#choc-bevel)" opacity="0.6" />
+
+      <!-- Gold Wrapper -->
+      <path d="M -2,72 L 97,72 L 97,162 L -2,162 Z" fill="url(#gold-grad)" stroke="#aa7c11" stroke-width="1"/>
+      <!-- Crown emblem details -->
+      <path d="M 40,115 L 43,108 L 47.5,111 L 52,108 L 55,115 Z" fill="none" stroke="#8a640f" stroke-width="1"/>
+    </g>
+
+    <!-- 3. SMALL BITE-SIZE MINI CHOCOLATE BAR (Foreground, flat center-ish) -->
+    <g transform="translate(200, 240) rotate(-5) translate(-45, -50)">
+      <rect x="0" y="0" width="85" height="110" rx="5" fill="url(#choc-dark)" />
+      <!-- Bevel Grid -->
+      <rect x="6" y="6" width="32" height="22" rx="1.5" fill="url(#choc-bevel)" />
+      <rect x="42" y="6" width="32" height="22" rx="1.5" fill="url(#choc-bevel)" />
+      
+      <rect x="6" y="32" width="32" height="22" rx="1.5" fill="url(#choc-bevel)" />
+      <rect x="42" y="32" width="32" height="22" rx="1.5" fill="url(#choc-bevel)" />
+
+      <!-- Bitten corner on small bar (top right) -->
+      <path d="M 60,-2 Q 72,12 87,4 Q 87,40 87,112 L -2,112 L -2,-2 Z" fill="none" /> <!-- Clip mapping logic simulation -->
+      
+      <!-- Gold Foil wrapping around lower edge of tiny bar -->
+      <path d="M -2,58 L 87,55 L 87,112 L -2,112 Z" fill="url(#gold-grad)" stroke="#aa7c11" stroke-width="0.8"/>
+    </g>
+  </g>
+
+  <!-- Sparkles -->
+  <path class="sparkle" d="M 80,140 L 82,145 L 87,147 L 82,149 L 80,154 L 78,149 L 73,147 L 78,145 Z" style="animation-delay: 0.2s; transform: translate(80px, 140px);"/>
+  <path class="sparkle" d="M 310,180 L 312,185 L 317,187 L 312,189 L 310,194 L 308,189 L 303,187 L 308,185 Z" style="animation-delay: 1.8s; transform: translate(310px, 180px);"/>
+  <path class="sparkle" d="M 230,280 L 232,285 L 237,287 L 232,289 L 230,294 L 228,289 L 223,287 L 228,285 Z" style="animation-delay: 0.9s; transform: translate(230px, 280px);"/>
+</svg>

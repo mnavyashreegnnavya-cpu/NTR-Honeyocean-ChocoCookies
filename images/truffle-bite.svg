@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a140a" />
+      <stop offset="100%" stop-color="#0f0703" />
+    </radialGradient>
+
+    <!-- Truffle Outer Shell Gradient -->
+    <radialGradient id="truffle-shell" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#552c16" />
+      <stop offset="40%" stop-color="#3c1e0e" />
+      <stop offset="85%" stop-color="#1f0e05" />
+      <stop offset="100%" stop-color="#0d0400" />
+    </radialGradient>
+
+    <!-- Ganache Core Glow Gradient -->
+    <radialGradient id="ganache-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff9933" stop-opacity="0.9" />
+      <stop offset="35%" stop-color="#aa5511" stop-opacity="0.7" />
+      <stop offset="70%" stop-color="#551a00" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#220a00" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="gold-drizzle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf6c7" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#8a640f" />
+    </linearGradient>
+
+    <!-- Glow & Shadow Filters -->
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="truffle-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#000000" flood-opacity="0.95"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* Keyframe Animations */
+    @keyframes float-truffle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(3deg); }
+    }
+    @keyframes pulse-core {
+      0%, 100% { transform: scale(1); opacity: 0.75; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+    @keyframes shine-drizzle {
+      0% { stroke-dashoffset: 300; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes float-sparkle {
+      0% { transform: translate(0, 0) scale(0.3); opacity: 0; }
+      50% { opacity: 0.9; }
+      100% { transform: translate(15px, -30px) scale(0.8); opacity: 0; }
+    }
+
+    /* SVG Classes */
+    .bg { fill: url(#bg-grad); }
+    .floating-truffle {
+      animation: float-truffle 6.5s ease-in-out infinite;
+      transform-origin: 200px 200px;
+    }
+    .pulsing-core {
+      animation: pulse-core 3s infinite ease-in-out;
+      transform-origin: 215px 195px; /* Centers on core slice */
+    }
+    .drizzle-path {
+      stroke: url(#gold-drizzle);
+      stroke-width: 4.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-dasharray: 300;
+      animation: shine-drizzle 5s linear infinite;
+    }
+    .glint {
+      fill: #fff;
+      animation: float-sparkle 4s infinite ease-in-out;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" width="400" height="400" rx="15" />
+
+  <!-- Background Radial Glow -->
+  <circle cx="200" cy="200" r="110" fill="#d4af37" opacity="0.15" filter="url(#soft-glow)" />
+
+  <!-- Floating Truffle Group -->
+  <g class="floating-truffle" filter="url(#truffle-shadow)">
+    <!-- Main Truffle Outer Shell (Spherical) -->
+    <!-- Draw as a sphere with a bite/slice cut out on the left side -->
+    <!-- Center: 200, 200, Radius: 90 -->
+    <path d="M 140,135
+             C 110,180 120,230 145,260
+             A 90,90 0 1,0 260,140
+             C 230,110 170,110 140,135 Z" 
+          fill="url(#truffle-shell)" />
+
+    <!-- Cocoa Powder Velvet Shading Texture -->
+    <path d="M 140,135 C 110,180 120,230 145,260 A 90,90 0 1,0 260,140 C 230,110 170,110 140,135 Z" 
+          fill="#000000" opacity="0.15" />
+
+    <!-- Elegant Swirling Gold Drizzle loop over the outer shell -->
+    <!-- Only paths matching the unbitten shell part -->
+    <path class="drizzle-path" d="M 270,120 Q 240,160 210,140 T 170,220 T 250,260 T 290,210" />
+
+    <!-- Sliced/Bitten Ganache Core Face -->
+    <!-- The cut-out slice surface -->
+    <path d="M 140,135 
+             Q 180,170 190,195 
+             Q 180,225 145,260 
+             C 125,225 120,170 140,135 Z" 
+          fill="#311305" stroke="#1d0a02" stroke-width="2" />
+
+    <!-- Glowing Ganache Lava Filling (Inner bite core) -->
+    <path class="pulsing-core" d="M 145,150 
+             Q 175,175 180,195 
+             Q 175,215 150,245 
+             C 135,215 130,175 145,150 Z" 
+          fill="url(#ganache-glow)" filter="url(#soft-glow)" />
+
+    <!-- Liquid Ganache Drip dripping out of the core -->
+    <path d="M 152,210 Q 150,235 146,242 Q 143,245 140,245 Q 137,245 137,242 Q 139,235 144,210 Z" fill="#aa5511" />
+
+    <!-- Sparkling Gold Flakes inside core/bite edge -->
+    <circle cx="150" cy="170" r="2" fill="#fff" opacity="0.9" />
+    <circle cx="165" cy="190" r="1.5" fill="#fdf6c7" />
+    <circle cx="158" cy="215" r="2" fill="#d4af37" />
+  </g>
+
+  <!-- Sparkles/Glints floating around -->
+  <g class="glint" transform="translate(110, 150)">
+    <path d="M0,0 L2,5 L0,10 L-2,5 Z" fill="#d4af37" />
+  </g>
+  <g class="glint" transform="translate(290, 260)" style="animation-delay: 1.5s;">
+    <path d="M0,0 L3,6 L0,12 L-3,6 Z" fill="#fdf6c7" />
+  </g>
+</svg>

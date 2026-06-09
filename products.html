@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our luxury catalog of honey-infused chocolates, gourmet butter cookies, and custom gift hampers. Order fresh in Bangalore via WhatsApp.">
+    <title>Premium Catalog | NTR Honey Ocean Chocolates and Cookies</title>
+    <!-- Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="admin-mode-indicator" id="admin-indicator"><i class="fa-solid fa-lock-open"></i> Confections Manager Active</div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <nav class="nav-container">
+            <a href="index.html" class="logo-link" id="nav-logo">
+                <img src="./images/logo.jpg" alt="NTR Honey Ocean Logo" class="logo-img">
+                <div class="logo-text-wrapper">
+                    <div class="logo-main">
+                        <span>NTR HONEY OCEAN</span>
+                    </div>
+                    <div class="logo-sub">Chocolates and Cookies</div>
+                </div>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-item">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="products.html" class="nav-item">Products</a></li>
+                <li><a href="gallery.html" class="nav-item">Gallery</a></li>
+                <li><a href="contact.html" class="nav-item">Contact</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Intro Banner -->
+    <div class="page-intro">
+        <h1>Boutique Catalog</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; align-self: center;"></i>
+            <span>Products</span>
+        </div>
+    </div>
+
+    <!-- Products Catalog Section -->
+    <section class="products-section">
+        <!-- Filter controls -->
+        <div class="product-filters">
+            <button class="filter-btn active" data-filter="all">All Confections</button>
+            <button class="filter-btn" data-filter="chocolates">Chocolates</button>
+            <button class="filter-btn" data-filter="cookies">Gourmet Cookies</button>
+            <button class="filter-btn" data-filter="hampers">Gift Hampers</button>
+            <button class="filter-btn" id="btn-toggle-admin" style="border-color: var(--color-honey); color: var(--color-honey); margin-left: 1rem;"><i class="fa-solid fa-lock"></i> Manage Catalog</button>
+            <button class="filter-btn admin-only-btn" id="btn-admin-add-item" style="border-color: var(--color-primary-gold); color: var(--color-primary-gold); margin-left: 0.5rem; display: none;"><i class="fa-solid fa-plus"></i> Add New Confection</button>
+            <button class="filter-btn admin-only-btn" id="btn-admin-edit-social" style="border-color: var(--color-primary-gold); color: var(--color-primary-gold); margin-left: 0.5rem; display: none;"><i class="fa-solid fa-gears"></i> Website Settings</button>
+        </div>
+
+        <!-- Catalog Grid -->
+        <div class="products-grid" id="products-grid">
+            
+            <!-- Product 1: Truffles -->
+            <div class="product-card" data-category="chocolates">
+                <div class="product-image-container">
+                    <div class="product-tag">Signature</div>
+                    <img src="https://images.unsplash.com/photo-1548907040-4d42b52125ca?q=80&w=600&auto=format&fit=crop" alt="Signature Dark Truffles" class="product-card-image" width="300" height="250">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Signature Dark Truffles</h3>
+                    <p class="product-desc">Decadent 72% dark chocolate shell filled with a silky, velvet ganache made from single-origin Madagascar cacao and dusted with edible gold dust.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹749</span>
+                        <a href="https://wa.me/918310503775?text=Hello%20NTR%20Honey%20Ocean!%20I%20would%20like%20to%20order%20the%20Signature%20Dark%20Truffles." target="_blank" class="btn-order-wa">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Cookies -->
+            <div class="product-card" data-category="cookies">
+                <div class="product-image-container">
+                    <div class="product-tag">Freshly Baked</div>
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop" alt="Sea-Salt Dark Cookies" class="product-card-image" width="300" height="250">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Sea-Salt Dark Cookies</h3>
+                    <p class="product-desc">Soft-baked butter cookies packed with rich dark chocolate chips and finished with a pinch of premium Maldon sea salt.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹499</span>
+                        <a href="https://wa.me/918310503775?text=Hello%20NTR%20Honey%20Ocean!%20I%20would%20like%20to%20order%20the%20Sea-Salt%20Dark%20Cookies." target="_blank" class="btn-order-wa">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Hampers -->
+            <div class="product-card" data-category="hampers">
+                <div class="product-image-container">
+                    <div class="product-tag">Luxury Set</div>
+                    <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?q=80&w=600&auto=format&fit=crop" alt="Golden Ribbon Assorted Gift Box" class="product-card-image" width="300" height="250">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Ocean Assorted Gift Box</h3>
+                    <p class="product-desc">A premium gold-embossed chest containing an exquisite assortment of 12 signature dark truffles, 6 sea-salt cookies, and a custom dark chocolate slab.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹1,899</span>
+                        <a href="https://wa.me/918310503775?text=Hello%20NTR%20Honey%20Ocean!%20I%20would%20like%20to%20order%20the%20Ocean%20Assorted%20Gift%20Box." target="_blank" class="btn-order-wa">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4: Chocolate Slab -->
+            <div class="product-card" data-category="chocolates">
+                <div class="product-image-container">
+                    <div class="product-tag">Artisanal</div>
+                    <img src="https://images.unsplash.com/photo-1548907040-4d42b52125ca?q=80&w=600&auto=format&fit=crop" alt="Royal Dark Chocolate Bar" class="product-card-image" width="300" height="250">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Royal Dark Chocolate Bar</h3>
+                    <p class="product-desc">Solid 80% dark chocolate bar embedded with slow-roasted almond slivers and sweet orange peel. Rich texture and high aromatic depth.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹399</span>
+                        <a href="https://wa.me/918310503775?text=Hello%20NTR%20Honey%20Ocean!%20I%20would%20like%20to%20order%20the%20Royal%20Dark%20Chocolate%20Bar." target="_blank" class="btn-order-wa">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5: Cookies Pack -->
+            <div class="product-card" data-category="cookies">
+                <div class="product-image-container">
+                    <div class="product-tag">Best Seller</div>
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop" alt="Double Chocolate Crunch" class="product-card-image" width="300" height="250">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Double Chocolate Cookies</h3>
+                    <p class="product-desc">Baked double chocolate cookie base loaded with premium white and dark chocolate chunks, enriched with real Dutch-processed cocoa.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹549</span>
+                        <a href="https://wa.me/918310503775?text=Hello%20NTR%20Honey%20Ocean!%20I%20would%20like%20to%20order%20the%20Double%20Chocolate%20Cookies." target="_blank" class="btn-order-wa">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: Holiday Hamper -->
+            <div class="product-card" data-category="hampers">
+                <div class="product-image-container">
+                    <div class="product-tag">Festive Special</div>
+                    <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?q=80&w=600&auto=format&fit=crop" alt="Ocean Festive Hamper" class="product-card-image" width="300" height="250">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Ocean Festive Hamper</h3>
+                    <p class="product-desc">Celebrate with a hand-woven luxury basket complete with artisanal chocolate spreads, butter cookies, dark chocolate bars, and signature truffles.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹2,499</span>
+                        <a href="https://wa.me/918310503775?text=Hello%20NTR%20Honey%20Ocean!%20I%20would%20like%20to%20order%20the%20Ocean%20Festive%20Hamper." target="_blank" class="btn-order-wa">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo-link" style="margin-bottom: 1.5rem;">
+                    <img src="./images/logo.jpg" alt="NTR Honey Ocean Logo" class="logo-img">
+                    <div class="logo-text-wrapper">
+                        <div class="logo-main">
+                            <span>NTR HONEY OCEAN</span>
+                        </div>
+                        <div class="logo-sub">Chocolates and Cookies</div>
+                    </div>
+                </div>
+                <p>Bangalore's premium chocolate boutique blending rich dark cocoa with organic forest honey. Handcrafted with passion, delivered fresh.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Boutique Pages</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Product Catalog</a></li>
+                    <li><a href="gallery.html">Visual Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Boutique Info</h3>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <a href="https://maps.google.com/?q=No.38,%204th%20cross,%20Priyadarshini%20Layout,%20Chikka%20Devasandhra,%20Near%20Topmart,%20KR%20PURA,%20BANGALORE%20560036" target="_blank" class="contact-link">No.38, 4th cross, Priyadarshini Layout, Chikka Devasandhra, Near Topmart, KR PURA, BANGALORE 560036.</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <a href="https://wa.me/918310503775" target="_blank" class="contact-link">+91 8310503775 (Orders)</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:mnavyashreegnnavya@gmail.com" class="contact-link">mnavyashreegnnavya@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 NTR Honey Ocean Chocolates and Cookies. All Rights Reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="./js/main.js"></script>
+</body>
+</html>

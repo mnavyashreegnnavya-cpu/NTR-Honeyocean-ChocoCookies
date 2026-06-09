@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a140a" />
+      <stop offset="100%" stop-color="#0f0703" />
+    </radialGradient>
+
+    <!-- Cookie Base Gradient (Deep Golden/Brown Chocolate cookie) -->
+    <radialGradient id="cookie-grad" cx="40%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#ab7b32" />
+      <stop offset="60%" stop-color="#805013" />
+      <stop offset="100%" stop-color="#4a2c06" />
+    </radialGradient>
+
+    <!-- Dark Chocolate Chunk Gradient -->
+    <linearGradient id="chunk-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#311508" />
+      <stop offset="100%" stop-color="#120501" />
+    </linearGradient>
+
+    <!-- Gold Gradients -->
+    <linearGradient id="gold-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf6c7" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#aa7c11" />
+    </linearGradient>
+
+    <!-- Glow & Shadow Filters -->
+    <filter id="salt-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="cookie-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="15" stdDeviation="12" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* Keyframe Animations */
+    @keyframes float-cookie {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(-3deg); }
+    }
+    @keyframes salt-shimmer {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    @keyframes drift-sparkles {
+      0% { transform: translateY(30px) translateX(0) scale(0.5); opacity: 0; }
+      50% { opacity: 0.9; }
+      100% { transform: translateY(-40px) translateX(15px) scale(1); opacity: 0; }
+    }
+
+    /* SVG Classes */
+    .bg { fill: url(#bg-grad); }
+    .floating-cookie {
+      animation: float-cookie 7.5s ease-in-out infinite;
+      transform-origin: 200px 200px;
+    }
+    .salt-crystal {
+      fill: #ffffff;
+      filter: url(#salt-glow);
+      transform-origin: center;
+      animation: salt-shimmer 3s infinite ease-in-out;
+    }
+    .drifting-star {
+      fill: url(#gold-shine);
+      animation: drift-sparkles 4.5s infinite linear;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" width="400" height="400" rx="15" />
+
+  <!-- Background Ambient Glow -->
+  <circle cx="200" cy="200" r="120" fill="#aa7c11" opacity="0.2" filter="url(#salt-glow)" />
+
+  <!-- Floating Drifting Sparkles (Sea Salt and Gold dust atmosphere) -->
+  <path class="drifting-star" d="M 120,300 L 122,305 L 127,307 L 122,309 L 120,314 L 118,309 L 113,307 L 118,305 Z" style="animation-delay: 0s;" />
+  <path class="drifting-star" d="M 280,270 L 282,275 L 287,277 L 282,279 L 280,284 L 278,279 L 273,277 L 278,275 Z" style="animation-delay: 1.5s;" />
+  <path class="drifting-star" d="M 150,130 L 152,135 L 157,137 L 152,139 L 150,144 L 148,139 L 143,137 L 148,135 Z" style="animation-delay: 3s;" />
+
+  <!-- Floating Cookie Group -->
+  <g class="floating-cookie" filter="url(#cookie-shadow)">
+    <!-- Main Cookie Shape with artisanal wavy edges -->
+    <path d="M 200,90
+             Q 220,86 240,96
+             Q 260,100 278,110
+             Q 296,120 300,140
+             Q 312,160 306,180
+             Q 314,200 304,220
+             Q 302,242 288,260
+             Q 274,278 254,288
+             Q 234,306 200,306
+             Q 166,306 146,288
+             Q 126,278 112,260
+             Q 98,242 96,220
+             Q 86,200 94,180
+             Q 88,160 100,140
+             Q 104,120 122,110
+             Q 140,100 160,96
+             Q 180,86 200,90 Z" 
+          fill="url(#cookie-grad)" />
+
+    <!-- Cookie Crack lines -->
+    <path d="M 130,150 Q 160,170 180,145" stroke="#331c03" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M 220,130 Q 240,150 260,135" stroke="#331c03" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M 150,230 Q 180,240 210,210" stroke="#331c03" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M 210,250 Q 240,260 270,230" stroke="#331c03" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+
+    <!-- Premium Dark Chocolate Chunks embedded -->
+    <!-- Chunk 1 -->
+    <path d="M 145,115 L 170,120 L 160,145 L 135,135 Z" fill="url(#chunk-grad)" stroke="#1a0b03" stroke-width="1.5"/>
+    <path d="M 147,117 L 168,122 L 165,127 Z" fill="#6d3a1d" opacity="0.3"/>
+    
+    <!-- Chunk 2 -->
+    <path d="M 230,110 L 255,120 L 245,145 L 220,135 Z" fill="url(#chunk-grad)" stroke="#1a0b03" stroke-width="1.5"/>
+    <path d="M 232,112 L 253,122 L 251,127 Z" fill="#6d3a1d" opacity="0.3"/>
+
+    <!-- Chunk 3 (Big central chunk) -->
+    <path d="M 175,155 L 225,160 L 210,205 L 170,195 Z" fill="url(#chunk-grad)" stroke="#1a0b03" stroke-width="1.8"/>
+    <path d="M 177,157 L 222,162 L 218,172 Z" fill="#6d3a1d" opacity="0.35"/>
+
+    <!-- Chunk 4 -->
+    <path d="M 125,190 L 155,195 L 145,220 L 120,210 Z" fill="url(#chunk-grad)" stroke="#1a0b03" stroke-width="1.5"/>
+    <!-- Chunk 5 -->
+    <path d="M 240,190 L 270,200 L 255,225 L 230,215 Z" fill="url(#chunk-grad)" stroke="#1a0b03" stroke-width="1.5"/>
+    <!-- Chunk 6 -->
+    <path d="M 170,225 L 195,220 L 190,245 L 165,240 Z" fill="url(#chunk-grad)" stroke="#1a0b03" stroke-width="1.5"/>
+
+    <!-- Sparkling Sea Salt Flakes (White polygons/diamonds) -->
+    <!-- Salt 1 -->
+    <polygon class="salt-crystal" points="160,135 165,133 167,138 162,140" style="animation-delay: 0s;"/>
+    <polygon class="salt-crystal" points="163,137 169,136 170,141 164,142" style="animation-delay: 0.3s; fill: #fcfcfc;"/>
+    
+    <!-- Salt 2 -->
+    <polygon class="salt-crystal" points="215,125 220,123 222,128 217,130" style="animation-delay: 0.8s;"/>
+    
+    <!-- Salt 3 -->
+    <polygon class="salt-crystal" points="190,175 198,172 201,178 193,181" style="animation-delay: 0.4s;"/>
+    <polygon class="salt-crystal" points="180,185 185,183 187,188 182,190" style="animation-delay: 1.2s;"/>
+
+    <!-- Salt 4 -->
+    <polygon class="salt-crystal" points="145,205 150,203 152,208 147,210" style="animation-delay: 1.6s;"/>
+    
+    <!-- Salt 5 -->
+    <polygon class="salt-crystal" points="235,225 240,223 242,228 237,230" style="animation-delay: 2s;"/>
+    <polygon class="salt-crystal" points="250,205 255,203 257,208 252,210" style="animation-delay: 1.1s;"/>
+  </g>
+</svg>

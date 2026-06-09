@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a140a" />
+      <stop offset="100%" stop-color="#0f0703" />
+    </radialGradient>
+
+    <!-- Gold Foil Gradients -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#aa7c11" />
+      <stop offset="25%" stop-color="#f3e5ab" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="75%" stop-color="#fdf6c7" />
+      <stop offset="100%" stop-color="#aa7c11" />
+    </linearGradient>
+
+    <linearGradient id="gold-shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af37" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#d4af37" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Chocolate Gradients -->
+    <linearGradient id="choc-base" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a2511" />
+      <stop offset="100%" stop-color="#220f05" />
+    </linearGradient>
+    <linearGradient id="choc-bevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5a2e16" />
+      <stop offset="100%" stop-color="#180a03" />
+    </linearGradient>
+
+    <!-- Soft Glow Filter -->
+    <filter id="gold-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="15" stdDeviation="10" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* Keyframe Animations */
+    @keyframes shimmer {
+      0% { transform: translateX(-150%) rotate(-25deg); }
+      100% { transform: translateX(150%) rotate(-25deg); }
+    }
+    @keyframes float-dust {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-15px) scale(1.2); opacity: 0.8; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+    @keyframes float-bar {
+      0%, 100% { transform: translateY(0px) rotate(4deg); }
+      50% { transform: translateY(-8px) rotate(5deg); }
+    }
+    @keyframes sparkle-pulse {
+      0%, 100% { transform: scale(0.3) rotate(0deg); opacity: 0.2; }
+      50% { transform: scale(1) rotate(90deg); opacity: 1; }
+    }
+
+    /* SVG Classes */
+    .bg { fill: url(#bg-grad); }
+    .floating-group {
+      animation: float-bar 6s ease-in-out infinite;
+      transform-origin: 200px 200px;
+    }
+    .shimmer-line {
+      animation: shimmer 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    .sparkle {
+      fill: #fff;
+      filter: drop-shadow(0 0 3px #d4af37);
+      transform-origin: center;
+      animation: sparkle-pulse 3s infinite ease-in-out;
+    }
+    .dust {
+      fill: #d4af37;
+      opacity: 0.5;
+      animation: float-dust 4s infinite ease-in-out;
+    }
+    .glow-circle {
+      animation: pulse-glow 5s infinite ease-in-out;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" width="400" height="400" rx="15" />
+
+  <!-- Ambient Glow in Background -->
+  <circle class="glow-circle" cx="200" cy="200" r="130" fill="#aa7c11" opacity="0.4" filter="url(#gold-glow)" />
+
+  <!-- Floating Particles/Dust -->
+  <circle class="dust" cx="80" cy="120" r="2.5" style="animation-delay: 0s;" />
+  <circle class="dust" cx="320" cy="80" r="3" style="animation-delay: 1.5s;" />
+  <circle class="dust" cx="110" cy="280" r="2" style="animation-delay: 0.8s;" />
+  <circle class="dust" cx="290" cy="300" r="4" style="animation-delay: 2.3s;" />
+  <circle class="dust" cx="50" cy="220" r="1.5" style="animation-delay: 1.2s;" />
+
+  <!-- Animated Floating Chocolate Bar Group -->
+  <g class="floating-group" filter="url(#soft-shadow)">
+    <!-- Base Chocolate Plate -->
+    <rect x="120" y="80" width="160" height="240" rx="10" fill="url(#choc-base)" />
+
+    <!-- Chocolate Segments (Grid Pattern) -->
+    <!-- Row 1 -->
+    <rect x="130" y="90" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="133" y="93" width="36" height="36" rx="2" fill="url(#choc-base)" />
+    
+    <rect x="179" y="90" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="182" y="93" width="36" height="36" rx="2" fill="url(#choc-base)" />
+    
+    <rect x="228" y="90" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="231" y="93" width="36" height="36" rx="2" fill="url(#choc-base)" />
+
+    <!-- Row 2 -->
+    <rect x="130" y="139" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="133" y="142" width="36" height="36" rx="2" fill="url(#choc-base)" />
+    
+    <rect x="179" y="139" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="182" y="142" width="36" height="36" rx="2" fill="url(#choc-base)" />
+    
+    <rect x="228" y="139" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="231" y="142" width="36" height="36" rx="2" fill="url(#choc-base)" />
+
+    <!-- Row 3 -->
+    <rect x="130" y="188" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="133" y="191" width="36" height="36" rx="2" fill="url(#choc-base)" />
+    
+    <rect x="179" y="188" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="182" y="191" width="36" height="36" rx="2" fill="url(#choc-base)" />
+    
+    <rect x="228" y="188" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="231" y="191" width="36" height="36" rx="2" fill="url(#choc-base)" />
+
+    <!-- Row 4 (Covered partially by gold foil) -->
+    <rect x="130" y="237" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="179" y="237" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+    <rect x="228" y="237" width="42" height="42" rx="3" fill="url(#choc-bevel)" />
+
+    <!-- Royal Gold Foil Wrapping (Peeled/Torn effect at the top) -->
+    <!-- Gold foil body covering lower part -->
+    <path d="M 116,210 
+             L 150,195 
+             Q 180,215 200,190 
+             Q 220,175 250,195 
+             L 284,210 
+             L 284,324 
+             L 116,324 Z" 
+          fill="url(#gold-grad)" stroke="#aa7c11" stroke-width="1.5" />
+
+    <!-- Gold Foil Texture & Embossed Crown Pattern -->
+    <path d="M 125,230 L 275,230" stroke="#aa7c11" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+    <path d="M 125,250 L 275,250" stroke="#aa7c11" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+    <path d="M 125,270 L 275,270" stroke="#aa7c11" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+    <path d="M 125,290 L 275,290" stroke="#aa7c11" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+
+    <!-- Royal Crown Embossed Logo on Foil -->
+    <path d="M 185,275 L 190,263 L 195,268 L 200,260 L 205,268 L 210,263 L 215,275 Z" fill="none" stroke="#aa7c11" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle cx="190" cy="261" r="1" fill="#aa7c11"/>
+    <circle cx="200" cy="258" r="1" fill="#aa7c11"/>
+    <circle cx="210" cy="261" r="1" fill="#aa7c11"/>
+    <rect x="187" y="277" width="26" height="3" rx="1" fill="#aa7c11" />
+
+    <!-- Gold Foil Inner Fold/Backside (Shiny Silver/Gold) -->
+    <path d="M 116,210 L 150,195 Q 165,210 160,225 Z" fill="#eaeaea" stroke="#ccc" stroke-width="1"/>
+    <path d="M 284,210 L 250,195 Q 235,210 240,225 Z" fill="#eaeaea" stroke="#ccc" stroke-width="1"/>
+
+    <!-- Mask/Clip Path for Shimmer effect on Gold Foil -->
+    <g style="clip-path: url(#foil-clip);">
+      <rect x="100" y="180" width="200" height="150" fill="url(#gold-shimmer)" class="shimmer-line" opacity="0.3"/>
+    </g>
+  </g>
+
+  <!-- Sparkles -->
+  <path class="sparkle" d="M 160,180 L 163,188 L 171,191 L 163,194 L 160,202 L 157,194 L 149,191 L 157,188 Z" style="animation-delay: 0s; transform: translate(160px, 180px);"/>
+  <path class="sparkle" d="M 260,220 L 263,228 L 271,231 L 263,234 L 260,242 L 257,234 L 249,231 L 257,228 Z" style="animation-delay: 1.5s; transform: translate(260px, 220px);"/>
+  <path class="sparkle" d="M 220,120 L 223,128 L 231,131 L 223,134 L 220,142 L 217,134 L 209,131 L 217,128 Z" style="animation-delay: 0.7s; transform: translate(220px, 120px);"/>
+</svg>
